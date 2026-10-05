@@ -44,13 +44,13 @@ En el desarrollo de software, las "rutas" son las direcciones que el servidor in
 
 Para construir las páginas web combinamos código HTML tradicional con **EJS** (*Embedded JavaScript*), una herramienta que nos permite inyectar lógica de programación dentro del diseño visual. La interfaz se divide en tres piezas:
 
-### 1. El Layout (El "Molde Global")
+### 1. El Layout, El "Molde Global".
 Es un archivo base (`main.ejs`) que contiene el esqueleto común a todo el sitio web: la codificación, metadatos, enlaces globales y la estructura principal. Tiene un espacio reservado llamado `<%- body %>` donde se va incrustando el contenido de cada página de manera automática.
 
-### 2. Las Vistas (El "Contenido Particular" (ej: `inicio.ejs`, `lista.ejs`, `detalle.ejs`))
+### 2. Las Vistas, El "Contenido Particular" (ej: `inicio.ejs`, `lista.ejs`, `detalle.ejs`)
 Es el código exclusivo de cada sección. La vista del catálogo solo se preocupa por armar el listado de animales, mientras que la vista de inicio solo contiene el texto de bienvenida.
 
-### 3. Los Parciales (Las "Piezas Reutilizables" `partials/encabezado.ejs` y `partials/pie.ejs` )
+### 3. Los Parciales, Las "Piezas Reutilizables" (ej: `partials/encabezado.ejs` y `partials/pie.ejs`)
 Son componentes visuales que se repiten en todo el sitio, como la barra de navegación superior (encabezado) y los derechos de autor inferiores (pie de página). Se escriben una sola vez y se incluyen en el molde global para evitar duplicar código. Se insertan de forma controlada en el layout mediante `<%- include() %>`.
 
 ### Los datos enviados a través de `res.render`
