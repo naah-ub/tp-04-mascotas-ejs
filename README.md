@@ -45,19 +45,13 @@ En el desarrollo de software, las "rutas" son las direcciones que el servidor in
 Para construir las páginas web combinamos código HTML tradicional con **EJS** (*Embedded JavaScript*), una herramienta que nos permite inyectar lógica de programación dentro del diseño visual. La interfaz se divide en tres piezas:
 
 ### 1. El Layout (El "Molde Global")
-Es un archivo base (`main.ejs`) que contiene el esqueleto común a todo el sitio web: la configuración del idioma, los enlaces a los estilos visuales y la estructura principal. Tiene un espacio reservado llamado `<%- body %>` donde se va incrustando el contenido de cada página de manera automática.
+Es un archivo base (`main.ejs`) que contiene el esqueleto común a todo el sitio web: la codificación, metadatos, enlaces globales y la estructura principal. Tiene un espacio reservado llamado `<%- body %>` donde se va incrustando el contenido de cada página de manera automática.
 
-### 2. Las Vistas (El "Contenido Particular")
+### 2. Las Vistas (El "Contenido Particular" (ej: `inicio.ejs`, `lista.ejs`, `detalle.ejs`))
 Es el código exclusivo de cada sección. La vista del catálogo solo se preocupa por armar el listado de animales, mientras que la vista de inicio solo contiene el texto de bienvenida.
 
-### 3. Los Parciales (Las "Piezas Reutilizables")
-Son componentes visuales que se repiten en todo el sitio, como la barra de navegación superior (encabezado) y los derechos de autor inferiores (pie de página). Se escriben una sola vez y se incluyen en el molde global para evitar duplicar código.
-
-## Estructura de vistas
-El proyecto organiza la capa de presentación dentro del directorio `views/` implementando tres conceptos clave del motor EJS:
-* **Layout (`layouts/main.ejs`)**: Es el molde global o esqueleto compartido que define la estructura HTML común, la codificación, metadatos y enlaces globales. Centraliza el diseño e inyecta dinámicamente las vistas específicas con la etiqueta `<%- body %>`.
-* **Vista (ej: `inicio.ejs`, `lista.ejs`, `detalle.ejs`)**: Contiene exclusivamente los fragmentos de código HTML/EJS enfocados en el cuerpo de cada sección particular.
-* **Parcial (`partials/encabezado.ejs` y `partials/pie.ejs`)**: Componentes reutilizables e independientes creados para no repetir código (como el menú de navegación superior y el pie de página) que se insertan de forma controlada en el layout mediante `<%- include() %>`.
+### 3. Los Parciales (Las "Piezas Reutilizables" `partials/encabezado.ejs` y `partials/pie.ejs` )
+Son componentes visuales que se repiten en todo el sitio, como la barra de navegación superior (encabezado) y los derechos de autor inferiores (pie de página). Se escriben una sola vez y se incluyen en el molde global para evitar duplicar código. Se insertan de forma controlada en el layout mediante `<%- include() %>`.
 
 ### Los datos enviados a través de `res.render`
 En Express, las vistas no pueden acceder directamente a la base de datos o a los archivos del servidor por sí solas. Para conectar la lógica del backend con la pantalla, utilizamos la función **`res.render("nombre_de_vista", { datos })`**. 
