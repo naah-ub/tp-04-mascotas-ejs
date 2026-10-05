@@ -1,0 +1,26 @@
+<article class="detalle">
+    <!-- CORREGIDO: Cambiado de producto.categoria a mascota.estado o especie -->
+    <p class="etiqueta">
+        <%= mascota.especie.toUpperCase() %> — <%= mascota.estado %>
+    </p>
+
+    <!-- NUEVO: Renderizado de la imagen SVG de la mascota -->
+    <div class="contenedor-imagen">
+        <img src="<%= mascota.imagen %>" alt="Foto de <%=  `${mascota.nombre} es un ${mascota.especie}` %>" class="imagen-mascota">
+    </div>
+
+    <h1>
+        <%= mascota.nombre %>
+    </h1>
+
+    <p class="edad">
+        <strong>Edad:</strong>
+        <%= mascota.edad===0 ? 'Cachorro (menos de 1 año)' : mascota.edad + (mascota.edad===1 ? ' año' : ' años' ) %>
+    </p>
+
+    <p class="descripcion">
+        <%= mascota.descripcion %>
+    </p>
+
+    <a class="boton-volver" href="/mascotas">Volver al catálogo</a>
+</article>

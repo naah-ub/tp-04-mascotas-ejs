@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "nombre": "Max",
+    "especie": "perro",
+    "edad": 3,
+    "descripcion": "Un perro muy alegre, juguetón y amigable con los niños.",
+    "estado": "En adopción",
+    "imagen": "/img/max.svg"
+  },
+  {
+    "id": 2,
+    "nombre": "Luna",
+    "especie": "gato",
+    "edad": 2,
+    "descripcion": "Tranquila, cariñosa y le encanta dormir bajo el sol.",
+    "estado": "Reservada",
+    "imagen": "/img/luna.svg"
+  },
+  {
+    "id": 3,
+    "nombre": "Rocky",
+    "especie": "perro",
+    "edad": 5,
+    "descripcion": "Guardián y muy obediente, ideal para una casa con patio.",
+    "estado": "Adoptada",
+    "imagen": "/img/rocky.svg"
+  },
+  {
+    "id": 4,
+    "nombre": "Simba",
+    "especie": "gato",
+    "edad": 1,
+    "descripcion": "Un cachorro de gato muy curioso y lleno de energía.",
+    "estado": "En adopción",
+    "imagen": "/img/simba.svg"
+  },
+  {
+    "id": 5,
+    "nombre": "Lola",
+    "especie": "perro",
+    "edad": 0,
+    "descripcion": "Cachorrita rescatada, busca un hogar amoroso donde crecer.",
+    "estado": "En adopción",
+    "imagen": "/img/lola.svg"
+  },
+  {
+    "id": 6,
+    "nombre": "Toby",
+    "especie": "perro",
+    "edad": 4,
+    "descripcion": "Compañero ideal para caminatas largas, muy sociable.",
+    "estado": "Reservada",
+    "imagen": "/img/toby.svg"
+  },
+  {
+    "id": 7,
+    "nombre": "Mia",
+    "especie": "gato",
+    "edad": 6,
+    "descripcion": "Gata independiente, de hermosos ojos y pelaje suave.",
+    "estado": "Adoptada",
+    "imagen": "/img/mia.svg"
+  },
+  {
+    "id": 8,
+    "nombre": "Bruno",
+    "especie": "perro",
+    "edad": 2,
+    "descripcion": "Le encanta jugar a la pelota y convive bien con otros animales.",
+    "estado": "En adopción",
+    "imagen": "/img/bruno.svg"
+  }
+]
