@@ -53,8 +53,23 @@ Es el código exclusivo de cada sección. La vista del catálogo solo se preocup
 ### 3. Los Parciales (Las "Piezas Reutilizables")
 Son componentes visuales que se repiten en todo el sitio, como la barra de navegación superior (encabezado) y los derechos de autor inferiores (pie de página). Se escriben una sola vez y se incluyen en el molde global para evitar duplicar código.
 
+## Estructura de vistas
+El proyecto organiza la capa de presentación dentro del directorio `views/` implementando tres conceptos clave del motor EJS:
+* **Layout (`layouts/main.ejs`)**: Es el molde global o esqueleto compartido que define la estructura HTML común, la codificación, metadatos y enlaces globales. Centraliza el diseño e inyecta dinámicamente las vistas específicas con la etiqueta `<%- body %>`.
+* **Vista (ej: `inicio.ejs`, `lista.ejs`, `detalle.ejs`)**: Contiene exclusivamente los fragmentos de código HTML/EJS enfocados en el cuerpo de cada sección particular.
+* **Parcial (`partials/encabezado.ejs` y `partials/pie.ejs`)**: Componentes reutilizables e independientes creados para no repetir código (como el menú de navegación superior y el pie de página) que se insertan de forma controlada en el layout mediante `<%- include() %>`.
+
+### Los datos enviados a través de `res.render`
+En Express, las vistas no pueden acceder directamente a la base de datos o a los archivos del servidor por sí solas. Para conectar la lógica del backend con la pantalla, utilizamos la función **`res.render("nombre_de_vista", { datos })`**. 
+
+Esta función hace dos cosas fundamentales:
+1. Localiza el archivo de la vista solicitada dentro de la carpeta correspondiente.
+2. Le inyecta un paquete de datos en forma de objeto de JavaScript (por ejemplo, el título de la página o la lista de las mascotas). 
+
+Al recibir este paquete, el motor EJS procesa las variables antes de enviar la página al navegador, permitiendo que el contenido cambie de forma dinámica para cada usuario.
+
 > 🔒 **Buenas prácticas de seguridad (`=` vs `-`):** 
-> Al mostrar datos que ingresan los usuarios (como el nombre de una mascota), usamos la etiqueta `<%= ... %>` con el signo **`=`**. Esto actúa como un filtro que transforma cualquier intento de código malicioso en texto plano inofensivo. En cambio, la etiqueta con guion `<%- ... %>` solo se utiliza para nuestras piezas de estructura interna (`body` e `includes`) porque le da permiso al navegador de interpretar el código HTML real.
+> Al mostrar datos que viajan mediante `res.render` (como el nombre o la especie de una mascota), usamos la etiqueta `<%= ... %>` con el signo **`=`**. Esto actúa como un filtro que transforma cualquier intento de código malicioso en texto plano inofensivo. En cambio, la etiqueta con guion `<%- ... %>` solo se utiliza para nuestras piezas de estructura interna (`body` e `includes`) porque le da permiso al navegador de interpretar el código HTML real.
 
 ---
 
